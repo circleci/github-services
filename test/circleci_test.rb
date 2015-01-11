@@ -125,7 +125,7 @@ class CircleciTest < Service::TestCase
 
     @stubs.post "/hooks/github" do |env|
       body = Faraday::Utils.parse_query env[:body]
-      assert_match "https://e.circleci.com/hooks/github", env[:url].to_s
+      assert_match "https://circleci.com/hooks/github", env[:url].to_s
     end
 
     svc.receive_event
@@ -136,7 +136,7 @@ class CircleciTest < Service::TestCase
 
     @stubs.post "/hooks/github" do |env|
       body = Faraday::Utils.parse_query env[:body]
-      assert_match "https://circleci.com/hooks/github", env[:url].to_s
+      assert_match "https://e.circleci.com/hooks/github", env[:url].to_s
     end
 
     svc.receive_event
